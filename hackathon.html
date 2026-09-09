@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제4회 디디톤 — 작업 결과물 & 깨달은 점</title>
+    <style>
+        :root {
+            --bg: #0a0e1a;
+            --surface: #111827;
+            --accent: #1428A0;
+            --accent-light: #1d4ed8;
+            --gold: #f5a623;
+            --text: #eee;
+            --muted: #8892b0;
+            --border: rgba(29,78,216,0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #0a0e1a 0%, #111827 30%, #1428A0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(20,40,160,0.15) 0%, transparent 70%);
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 12px; position: relative; }
+        .hero .subtitle { font-size: 18px; color: var(--gold); margin-bottom: 8px; position: relative; }
+        .hero .date { font-size: 15px; color: var(--muted); position: relative; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .section { margin-bottom: 60px; }
+        .section-title {
+            font-size: 28px;
+            color: var(--accent-light);
+            border-bottom: 3px solid var(--accent-light);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .card h3 { color: var(--gold); margin-bottom: 12px; font-size: 18px; }
+        .card p { font-size: 15px; }
+        .lesson {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .lesson-num {
+            flex: 0 0 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .lesson-content { flex: 1; }
+        .lesson-content h3 { color: var(--accent-light); margin-bottom: 8px; }
+        .lesson-content p { font-size: 15px; color: var(--text); }
+        .highlight {
+            background: rgba(20,40,160,0.1);
+            border-left: 4px solid var(--accent-light);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+        .highlight p { font-size: 16px; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .timeline {
+            border-left: 2px solid var(--accent-light);
+            padding-left: 20px;
+            margin-left: 8px;
+        }
+        .timeline-item { margin-bottom: 16px; }
+        .timeline-item .time { color: var(--gold); font-weight: 600; font-size: 14px; }
+        .timeline-item .desc { font-size: 15px; }
+        .quote {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--gold);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 40px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>🏆 제4회 디디톤</h1>
+    <div class="subtitle">DS SW Developer Hackathon — 작업 결과물 & 깨달은 점</div>
+    <div class="date">2026.09.08 ~ 09.09 | 삼성전자 DS</div>
+</div>
+
+<div class="container">
+
+    <!-- 해커톤 개요 -->
+    <div class="section">
+        <h2 class="section-title">📋 해커톤 개요</h2>
+        <div class="card">
+            <h3>제4회 디디톤 (DDiTon)</h3>
+            <p>
+                <span class="badge">2일간 진행</span>
+                <span class="badge">AI-DLC 활용</span>
+                <span class="badge">40% AI 심사 + 60% 인간 투표</span>
+            </p>
+            <p style="margin-top: 12px;">
+                삼성전자 DS 부문에서 주최한 사내 해커톤. AI-DLC(AI Development Lifecycle) 도구를 활용하여 
+                2일간 아이디어를 구현하고 발표하는 행사.
+            </p>
+        </div>
+        <div class="card">
+            <h3>⏰ 심사 기준 (100점)</h3>
+            <p>AI-DLC 활용도 25점 · 문제 정의 및 해결 20점 · 창의성 15점 · 완성도 15점 · 사용성 15점 · 유지보수성 및 보안 10점</p>
+        </div>
+    </div>
+
+    <!-- 작업 결과물 -->
+    <div class="section">
+        <h2 class="section-title">🛠️ 작업 결과물</h2>
+        <div class="card">
+            <h3>사내 시스템 통합 Workflow + AI Agent</h3>
+            <p>분산된 사내 시스템을 하나로 통합하는 Workflow 개발과 AI Agent 통합 개발 과제를 진행.</p>
+            <div class="highlight">
+                <p>🏭 <strong>Dark Factory</strong> 지향 — 사람이 직접 라인에 들어가지 않고 모든 공정이 자동화되는 무인 공장. 
+                이 작업은 회사가 나아가는 방향성의 핵심 인프라를 코드로 구축하는 것.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>주요 기술 스택</h3>
+            <p>
+                <span class="badge">Python</span>
+                <span class="badge">AI Agent</span>
+                <span class="badge">Workflow</span>
+                <span class="badge">Kubernetes</span>
+                <span class="badge">Cloud Native</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- 깨달은 점 -->
+    <div class="section">
+        <h2 class="section-title">💡 해커톤에서 배운 것</h2>
+        
+        <div class="lesson">
+            <div class="lesson-num">1</div>
+            <div class="lesson-content">
+                <h3>아이디어 공유는 정말 중요함</h3>
+                <p>소통을 안 하면 안 됨. 팀원 간 아이디어가 공유되지 않으면 각자 다른 방향으로 일하게 됨.</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-num">2</div>
+            <div class="lesson-content">
+                <h3>참가 전 충분한 토론이 있어야 함</h3>
+                <p>코딩 시작 전에 팀 전체가 같은 그림을 보고 있어야 함. 충분한 토론 없이 시작하면 중간에 방향이 갈림.</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-num">3</div>
+            <div class="lesson-content">
+                <h3>기능을 만들려고 하면 안 됨</h3>
+                <p>해커톤에서 <strong>하나의 기능만 만들어도 대단한 거임.</strong> 빠르게 제작해서 빠르게 전달해야 하기 때문. 
+                욕심내서 여러 기능을 만들려고 하면 하나도 완성 못 함.</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-num">4</div>
+            <div class="lesson-content">
+                <h3>AI에게 맡기지 마셈</h3>
+                <p><strong>내 머릿속에 없는 걸 AI에게 맡기지 마셈.</strong> AI와 함께 고민은 해 볼 수 있음. 
+                하지만 방향과 아이디어는 사람이 가져야 함.</p>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <div class="lesson-num">5</div>
+            <div class="lesson-content">
+                <h3>팀 전원이 같은 생각으로 일해야 함</h3>
+                <p>리더를 포함 팀원 전원이 <strong>같은 생각</strong>을 가지고 일해야 함. 
+                한 명이라도 다른 방향을 보면 결과물이 파편화됨.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 핵심 메시지 -->
+    <div class="quote">
+        "내 머릿속에 없는 걸 AI에게 맡기지 마셈.<br>
+        함께 고민은 해 볼 수 있음."
+    </div>
+
+    <!-- 일정 -->
+    <div class="section">
+        <h2 class="section-title">📅 해커톤 타임라인</h2>
+        <div class="card">
+            <h3>1일차 (9/8 화)</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">09:00</div>
+                    <div class="desc">등록 및 오프닝</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">09:40 – 12:30</div>
+                    <div class="desc">AI-DLC 세션 (AWS · Anthropic) — AI Agent 케이스 스터디</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">13:30 – 21:00</div>
+                    <div class="desc">해커톤 개발 시작</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>2일차 (9/9 수)</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">09:30 – 17:00</div>
+                    <div class="desc">오전/오후 개발 (17:00 제출 마감)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17:00 – 17:30</div>
+                    <div class="desc">상호 평가</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17:40</div>
+                    <div class="desc">결과 발표 및 시상</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>🏆 <a href="https://tonyhan18.github.io/mentor-slides/">발표 슬라이드 보기 →</a></p>
+    <p style="margin-top: 8px;">📚 <a href="https://github.com/tonyhan18/Obsidian">LLM Wiki →</a></p>
+    <p style="margin-top: 16px;">TonyHan (한찬희) · 삼성전자 DS · AX/PI센터</p>
+</div>
+
+</body>
+</html>
